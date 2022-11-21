@@ -1,13 +1,12 @@
-package com.CaridadMichael.ClothingStore.model;
+package com.CaridadMichael.ClothingStore.model.user;
 
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-public class AppUser {
+public class UserAccount {
 	@Id
 	private long id;
 	private String username;
