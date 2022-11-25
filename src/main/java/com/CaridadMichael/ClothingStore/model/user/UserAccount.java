@@ -1,9 +1,13 @@
 package com.CaridadMichael.ClothingStore.model.user;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class UserAccount {
@@ -17,6 +21,7 @@ public class UserAccount {
 	private LocalDateTime createdAt;
 	private LocalDateTime modifiedAt;
 	
+
 	public long getId() {
 		return id;
 	}
