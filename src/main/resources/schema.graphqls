@@ -1,1 +1,12 @@
-type UserAccount
+type Query {
+	customerById(id:ID): UserAccount
+}
+
+type Mutation{
+	createUserAccount(username: String): UserAccount	
+}
+
+type UserAccount{
+	id : ID
+	username : String
+}
