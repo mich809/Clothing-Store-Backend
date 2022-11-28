@@ -1,0 +1,17 @@
+
+type Query {
+	getUserAccount(email: String!): UserAccount
+}
+
+type Mutation{
+	createUserAccount(email: String! , password : String!): String
+	createUserAddress(email: String!): String
+	createUserPayment(email: String!): String
+}
+
+type UserAccount{
+	id : ID
+	email : String
+	
+}
+
