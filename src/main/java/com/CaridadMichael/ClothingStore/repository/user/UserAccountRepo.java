@@ -8,5 +8,7 @@ import com.CaridadMichael.ClothingStore.model.user.UserAccount;
 
 @Repository
 public interface UserAccountRepo extends JpaRepository<UserAccount,Long> {
+	boolean existsByEmail(String email);
+	public UserAccount findByEmail(String email);
 
 }
