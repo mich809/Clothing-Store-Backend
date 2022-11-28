@@ -2,10 +2,13 @@ package com.CaridadMichael.ClothingStore.model.user;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -16,25 +19,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class UserAddress {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;	
 	
+	private String firstName;
+	private String lastName;	
 	private String addressLineOne;
 	private String addressLineTwo;
 	private String city;
 	private String postalCode;
 	private String country;
 	private String telephone;
-	private String mobile;
 	
-	 @ManyToOne(fetch = FetchType.LAZY, optional = false)	
-	 @OnDelete(action = OnDeleteAction.CASCADE)
-	 @JsonIgnore
-	 @MapsId
-     private UserAccount userAccount;
+
+	@OneToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name="user_id")
+    private UserAccount userAccount;
 
 	
 	
-		public long getId() {
+	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
@@ -77,11 +81,18 @@ public class UserAddress {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	public String getMobile() {
-		return mobile;
+	
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 }
