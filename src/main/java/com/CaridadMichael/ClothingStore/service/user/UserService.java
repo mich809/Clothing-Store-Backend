@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.CaridadMichael.ClothingStore.model.user.UserAccount;
+import com.CaridadMichael.ClothingStore.model.user.UserAddress;
 import com.CaridadMichael.ClothingStore.repository.user.UserAccountRepo;
 
 @Service
@@ -30,6 +31,10 @@ public class UserService {
 
 	private boolean userExists(String email) {
 		return userAccountRepo.existsByEmail(email);
+	}
+
+	public void addUserAddress(String email, UserAddress userAddress) {
+		userAccountRepo.updateAddress(email, userAddress);
 	}
 
 }
