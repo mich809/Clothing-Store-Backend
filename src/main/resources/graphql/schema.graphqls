@@ -5,13 +5,25 @@ type Query {
 
 type Mutation{
 	createUserAccount(email: String! , password : String!): String
-	createUserAddress(email: String!): String
-	createUserPayment(email: String!): String
+	addUserAddress(email: String! , userAddress : UserAddress ! ): String
+	createUserPayment(email: String! , userPayment: UserPayment! ): String
 }
 
 type UserAccount{
 	id : ID
 	email : String
+	
+}
+
+type UserAddress{
+	firstName : String;
+	lastName : String;	
+	
+	
+}
+
+type UserPayment{
+	
 	
 }
 
