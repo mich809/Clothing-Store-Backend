@@ -1,5 +1,7 @@
 package com.CaridadMichael.ClothingStore.controller.user;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -24,11 +26,17 @@ public class UserController {
 	@MutationMapping
 	public void addUserAddress(@Argument String email, @Argument UserAddress userAddress) {
 		userService.addUserAddress(email, userAddress);
+
 	}
 
 	@QueryMapping
 	public UserAccount getUserAccount(@Argument String email) {
-		return userService.getUser(email);
+		return userService.getUserAccount(email);
+	}
+
+	@QueryMapping
+	public Optional<UserAddress> getUserAddress(@Argument Long id) {
+		return userService.getUserAddress(id);
 	}
 
 }
