@@ -1,29 +1,73 @@
 
 type Query {
 	getUserAccount(email: String!): UserAccount
+	getUserAddress(id: Int!): UserAddress
+	getUserPayment(id: Int!) : UserPayment
+	
 }
 
 type Mutation{
 	createUserAccount(email: String! , password : String!): String
-	addUserAddress(email: String! , userAddress : UserAddress ! ): String
-	createUserPayment(email: String! , userPayment: UserPayment! ): String
+	deteleUserAccount(email: String!): String
+	addUserAddress(email: String! , userAddress : UserAddressInput! ): String	
+	deleteUserAddress(id: Int!): String
+	addUserPayment(email: String! , userAddress : UserAddressInput! ): String
+	deleteUserPayment(id: Int!): String
 }
 
 type UserAccount{
 	id : ID
 	email : String
-	
-}
-
-type UserAddress{
-	firstName : String;
-	lastName : String;	
-	
+	userAddress : UserAddress
 	
 }
 
 type UserPayment{
+	id : ID
+	paymentType : String
+	provider : String
+	expireDate: String
+	cardNumber: String
+	
+}
+
+type UserAddress{
+	firstName: String
+	lastName : String
+	addressLineOne: String
+	addressLineTwo: String
+	city: String
+	postalCode: String
+	country: String
+	telephone: String
+	
+}
+
+input UserAddressInput{
+	firstName: String
+	lastName : String
+	addressLineOne: String
+	addressLineTwo: String
+	city: String
+	postalCode: String
+	country: String
+	telephone: String
 	
 	
 }
+
+input UserPaymentInput{
+	firstName: String
+	lastName : String
+	addressLineOne: String
+	addressLineTwo: String
+	city: String
+	postalCode: String
+	country: String
+	telephone: String
+	
+	
+}
+
+
 
