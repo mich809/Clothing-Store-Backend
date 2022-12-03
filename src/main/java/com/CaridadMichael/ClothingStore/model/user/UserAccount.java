@@ -21,11 +21,11 @@ public class UserAccount {
 
 	private String password;
 
-	@OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL , orphanRemoval = true)
 	@PrimaryKeyJoinColumn
 	private UserAddress address;
 
-	@OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL , orphanRemoval = true)
 	@PrimaryKeyJoinColumn
 	private UserPayment userPayment;
 
