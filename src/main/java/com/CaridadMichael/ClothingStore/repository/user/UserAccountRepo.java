@@ -15,8 +15,6 @@ public interface UserAccountRepo extends JpaRepository<UserAccount, Long> {
 
 	public UserAccount findByEmail(String email);
 
-	@Modifying
-	@Query("update UserAccount u set u.UserAddress = :UserAddress  where u.email = :email")
-	void updateAddress(@Param(value = "email") String email, @Param(value = "UserAddress") UserAddress userAddress);
+	
 
 }
