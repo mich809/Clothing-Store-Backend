@@ -20,12 +20,22 @@ public class UserController {
 
 	@MutationMapping
 	public String createUserAccount(@Argument String email, @Argument String password) {
-		return userService.createUser(email, password);
+		return userService.createUserAccount(email, password);
+	}
+	
+	@MutationMapping
+	public String deleteUserAccount(@Argument String email) {
+		return userService.deleteUserAccount(email);
 	}
 
 	@MutationMapping
 	public void addUserAddress(@Argument String email, @Argument UserAddress userAddress) {
 		userService.addUserAddress(email, userAddress);
+
+	}
+	@MutationMapping
+	public void deleteUserAddress(@Argument Long id) {
+		userService.deleteUserAddress(id);
 
 	}
 
