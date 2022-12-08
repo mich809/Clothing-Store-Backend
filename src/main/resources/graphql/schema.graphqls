@@ -8,7 +8,7 @@ type Query {
 
 type Mutation{
 	createUserAccount(email: String! , password : String!): String
-	deteleUserAccount(email: String!): String
+	deleteUserAccount(email: String!): String
 	addUserAddress(email: String! , userAddress : UserAddressInput! ): String	
 	deleteUserAddress(id: Int!): String
 	addUserPayment(email: String! , userPayment : UserPaymentInput! ): String
