@@ -19,11 +19,14 @@ type UserAccount{
 	id : ID
 	email : String
 	userAddress : UserAddress
+	userPayment: UserPayment
 	
 }
 
 type UserPayment{
 	id : ID
+	firstName: String
+	lastName: String
 	paymentType : String
 	provider : String
 	expireDate: String
