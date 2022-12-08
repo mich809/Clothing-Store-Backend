@@ -12,7 +12,6 @@ import javax.persistence.OneToOne;
 @Entity
 public class UserAddress {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	private String firstName;
@@ -25,7 +24,7 @@ public class UserAddress {
 	private String telephone;
 
 	@OneToOne
-    @MapsId
+	@MapsId
 	private UserAccount userAccount;
 
 	public long getId() {
@@ -103,6 +102,10 @@ public class UserAddress {
 	public void setUserAccount(UserAccount userAccount) {
 		this.userAccount = userAccount;
 
+	}
+
+	public UserAccount getUserAccount() {
+		return userAccount;
 	}
 
 }
