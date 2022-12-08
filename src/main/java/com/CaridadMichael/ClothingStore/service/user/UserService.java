@@ -73,4 +73,16 @@ public class UserService {
 	private boolean userAccountExists(String email) {
 		return userAccountRepo.existsByEmail(email);
 	}
+
+	public void addUserPayment(String email, UserPayment userPayment) {
+		UserAccount userAccount = getUserAccount(email);
+		userAccount.setUserPayment(userPayment);
+		userPayment.setUserAccount(userAccount);
+		userAccountRepo.save(userAccount);
+		
+	}
+
+	public void deleteUserPayment(Long id) {
+		userPaymentRepo.deleteById(id);
+	}
 }
