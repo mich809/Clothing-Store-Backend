@@ -11,7 +11,7 @@ type Mutation{
 	deteleUserAccount(email: String!): String
 	addUserAddress(email: String! , userAddress : UserAddressInput! ): String	
 	deleteUserAddress(id: Int!): String
-	addUserPayment(email: String! , userAddress : UserAddressInput! ): String
+	addUserPayment(email: String! , userPayment : UserPaymentInput! ): String
 	deleteUserPayment(id: Int!): String
 }
 
@@ -59,12 +59,9 @@ input UserAddressInput{
 input UserPaymentInput{
 	firstName: String
 	lastName : String
-	addressLineOne: String
-	addressLineTwo: String
-	city: String
-	postalCode: String
-	country: String
-	telephone: String
+	cardNumber: String
+	expireDate: String
+	
 	
 	
 }
