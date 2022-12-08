@@ -47,9 +47,8 @@ public class UserService {
 	}
 
 	public void addUserAddress(String email, UserAddress userAddress) {
-
 		UserAccount userAccount = getUserAccount(email);
-		userAccount.setAddress(userAddress);
+		userAccount.setUserAddress(userAddress);
 		userAddress.setUserAccount(userAccount);
 		userAccountRepo.save(userAccount);
 
@@ -57,9 +56,9 @@ public class UserService {
 
 	public void deleteUserAddress(Long id) {
 		userAddressRepo.deleteById(id);
-		
 
 	}
+
 	public Optional<UserAddress> getUserAddress(Long id) {
 
 		return Optional.ofNullable(userAddressRepo.findById(id).orElseThrow(null));
@@ -79,7 +78,7 @@ public class UserService {
 		userAccount.setUserPayment(userPayment);
 		userPayment.setUserAccount(userAccount);
 		userAccountRepo.save(userAccount);
-		
+
 	}
 
 	public void deleteUserPayment(Long id) {
