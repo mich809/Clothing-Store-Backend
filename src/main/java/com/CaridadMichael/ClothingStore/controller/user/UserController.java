@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.CaridadMichael.ClothingStore.model.user.UserAccount;
 import com.CaridadMichael.ClothingStore.model.user.UserAddress;
+import com.CaridadMichael.ClothingStore.model.user.UserPayment;
 import com.CaridadMichael.ClothingStore.service.user.UserService;
 
-@Controller
+@RestController
 public class UserController {
 
 	@Autowired
@@ -38,6 +39,18 @@ public class UserController {
 		userService.deleteUserAddress(id);
 
 	}
+	
+	@MutationMapping
+	public void addUserPayment(@Argument String email, @Argument UserPayment userPayment) {
+		userService.addUserPayment(email, userPayment);
+
+	}
+	
+	@MutationMapping
+	public void deleteUserPayment(@Argument Long id) {
+		userService.deleteUserPayment(id);
+
+	}
 
 	@QueryMapping
 	public UserAccount getUserAccount(@Argument String email) {
@@ -47,6 +60,11 @@ public class UserController {
 	@QueryMapping
 	public Optional<UserAddress> getUserAddress(@Argument Long id) {
 		return userService.getUserAddress(id);
+	}
+	
+	@QueryMapping
+	public Optional<UserPayment> getUserPayment(@Argument Long id) {
+		return userService.getUserPayment(id);
 	}
 
 }
