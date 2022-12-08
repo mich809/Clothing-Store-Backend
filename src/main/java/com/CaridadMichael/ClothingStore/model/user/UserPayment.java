@@ -5,13 +5,13 @@ import javax.persistence.Id;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
-
-
 @Entity
 public class UserPayment {
 	@Id
 	private long id;
 
+	private String firstName;
+	private String lastName;
 	private String paymentType;
 	private String provider;
 	private String expireDate;
@@ -27,6 +27,22 @@ public class UserPayment {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getPaymentType() {
