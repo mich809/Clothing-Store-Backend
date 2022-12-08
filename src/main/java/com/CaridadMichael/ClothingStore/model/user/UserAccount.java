@@ -21,11 +21,11 @@ public class UserAccount {
 
 	private String password;
 
-	@OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL , orphanRemoval = true)
+	@OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL, orphanRemoval = true)
 	@PrimaryKeyJoinColumn
-	private UserAddress address;
+	private UserAddress userAddress;
 
-	@OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL , orphanRemoval = true)
+	@OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL, orphanRemoval = true)
 	@PrimaryKeyJoinColumn
 	private UserPayment userPayment;
 
@@ -45,14 +45,6 @@ public class UserAccount {
 
 	public void setUserPayment(UserPayment userPayment) {
 		this.userPayment = userPayment;
-	}
-
-	public UserAddress getAddress() {
-		return address;
-	}
-
-	public void setAddress(UserAddress address) {
-		this.address = address;
 	}
 
 	public long getId() {
@@ -79,12 +71,12 @@ public class UserAccount {
 		this.email = email;
 	}
 
-//	public void setUserAddress(UserAddress userAddress) {
-//		this.userAddress = userAddress;
-//	}
-//	
-//	public UserAddress getUserAddress() {
-//		return this.userAddress;
-//	}
+	public void setUserAddress(UserAddress userAddress) {
+		this.userAddress = userAddress;
+	}
+
+	public UserAddress getUserAddress() {
+		return this.userAddress;
+	}
 
 }
