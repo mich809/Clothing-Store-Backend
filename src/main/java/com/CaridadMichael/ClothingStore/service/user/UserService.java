@@ -76,13 +76,20 @@ public class UserService {
 	}
 
 	public Optional<UserAddress> getUserAddress(Long id) {
+		if (userAddressRepo.existsById(id)) {
+			return userAddressRepo.findById(id);
+		}
 
-		return Optional.ofNullable(userAddressRepo.findById(id).orElseThrow(null));
+		return Optional.ofNullable(null);
 	}
 
 	public Optional<UserPayment> getUserPayment(Long id) {
 
-		return Optional.ofNullable(userPaymentRepo.findById(id).orElseThrow(null));
+		if (userPaymentRepo.existsById(id)) {
+			return userPaymentRepo.findById(id);
+		}
+
+		return Optional.ofNullable(null);
 	}
 
 	public void addUserPayment(String email, UserPayment userPayment) {
