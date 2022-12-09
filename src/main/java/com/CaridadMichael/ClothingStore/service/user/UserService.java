@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.CaridadMichael.ClothingStore.model.user.UserAccount;
 import com.CaridadMichael.ClothingStore.model.user.UserAddress;
@@ -35,10 +36,15 @@ public class UserService {
 		return "User " + email + " created";
 
 	}
-
+	
+	@Transactional
 	public String deleteUserAccount(String email) {
-		userAccountRepo.deleteByEmail(email);
-		return "User " + email + " deleted";
+		if (userAccountRepo.existsByEmail(email)) {
+			userAccountRepo.deleteByEmail(email);
+			return "User " + email + " deleted";
+			
+		}
+		return "user " + email +" not found";
 
 	}
 
@@ -57,6 +63,11 @@ public class UserService {
 	public String deleteUserAddress(Long id) {
 		if (userAddressRepo.existsById(id)) {
 			userAddressRepo.deleteById(id);
+			Optional<UserAccount> user = userAccountRepo.findById(id);
+			if (user.isPresent()) {
+				user.get().setUserAddress(null);
+				userAccountRepo.save(user.get());
+			}
 			return "User address deleted";
 		}
 		
@@ -85,6 +96,11 @@ public class UserService {
 	public String deleteUserPayment(Long id) {
 		if (userPaymentRepo.existsById(id)) {
 			userPaymentRepo.deleteById(id);
+			Optional<UserAccount> user = userAccountRepo.findById(id);
+			if (user.isPresent()) {
+				user.get().setUserPayment(null);
+				userAccountRepo.save(user.get());
+			}
 			return "User payment deleted";
 		}
 		
