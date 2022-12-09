@@ -54,8 +54,13 @@ public class UserService {
 
 	}
 
-	public void deleteUserAddress(Long id) {
-		userAddressRepo.deleteById(id);
+	public String deleteUserAddress(Long id) {
+		if (userAddressRepo.existsById(id)) {
+			userAddressRepo.deleteById(id);
+			return "User address deleted";
+		}
+		
+		return "User address not found";
 
 	}
 
@@ -69,10 +74,6 @@ public class UserService {
 		return Optional.ofNullable(userPaymentRepo.findById(id).orElseThrow(null));
 	}
 
-	private boolean userAccountExists(String email) {
-		return userAccountRepo.existsByEmail(email);
-	}
-
 	public void addUserPayment(String email, UserPayment userPayment) {
 		UserAccount userAccount = getUserAccount(email);
 		userAccount.setUserPayment(userPayment);
@@ -81,7 +82,19 @@ public class UserService {
 
 	}
 
-	public void deleteUserPayment(Long id) {
-		userPaymentRepo.deleteById(id);
+	public String deleteUserPayment(Long id) {
+		if (userPaymentRepo.existsById(id)) {
+			userPaymentRepo.deleteById(id);
+			return "User payment deleted";
+		}
+		
+		return "User payment not found";
+			
 	}
+
+	private boolean userAccountExists(String email) {
+		return userAccountRepo.existsByEmail(email);
+	}
+	
+	
 }
