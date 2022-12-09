@@ -35,8 +35,8 @@ public class UserController {
 
 	}
 	@MutationMapping
-	public void deleteUserAddress(@Argument Long id) {
-		userService.deleteUserAddress(id);
+	public String deleteUserAddress(@Argument Long id) {
+		return userService.deleteUserAddress(id);
 
 	}
 	
@@ -47,8 +47,8 @@ public class UserController {
 	}
 	
 	@MutationMapping
-	public void deleteUserPayment(@Argument Long id) {
-		userService.deleteUserPayment(id);
+	public String deleteUserPayment(@Argument Long id) {
+		return userService.deleteUserPayment(id);
 
 	}
 
