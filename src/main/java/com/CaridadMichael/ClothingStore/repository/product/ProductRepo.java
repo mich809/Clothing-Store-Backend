@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.CaridadMichael.ClothingStore.model.product.Product;
 
-public interface ProductRepository  extends JpaRepository<Product, Long> {
+public interface ProductRepo  extends JpaRepository<Product, Long> {
 
 }
