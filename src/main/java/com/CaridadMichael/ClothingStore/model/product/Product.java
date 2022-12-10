@@ -1,33 +1,58 @@
 package com.CaridadMichael.ClothingStore.model.product;
 
-import java.time.LocalDateTime;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-
-import com.CaridadMichael.ClothingStore.model.user.UserAddress;
 
 @Entity
 public class Product {
 	@Id
 	private long id;
-	
+
 	private String name;
 	private String description;
-	private String sku;
 	private float price;
-	
-	private LocalDateTime createdAt;
-	private LocalDateTime modifiedAt;
-	private LocalDateTime deletedAt;
-	
-	
-	
-	
-	
-	
+
+	public Product() {
+	}
+
+	public Product(long id, String name, String description, float price) {
+
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
 
 }
