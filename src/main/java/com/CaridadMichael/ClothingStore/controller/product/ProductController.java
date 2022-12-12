@@ -22,7 +22,18 @@ public class ProductController {
 		return productService.createProduct(product);
 		
 	}
+	
+	@MutationMapping
+	public void deleteProduct(@Argument Long id) {
+		productService.deleteProduct(id);
+		
+	}
 
+	@QueryMapping
+	public Iterable <Product> getAllProducts() {
+		return productService.getAllProducts();
+		
+	}
 	@MutationMapping
 	public String createCategory(@Argument String category) {
 		return productService.createCategory(category);
