@@ -3,6 +3,7 @@ package com.CaridadMichael.ClothingStore.service.product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.CaridadMichael.ClothingStore.model.product.Product;
 import com.CaridadMichael.ClothingStore.repository.product.ProductCategoryRepo;
 import com.CaridadMichael.ClothingStore.repository.product.ProductRepo;
 
@@ -29,6 +30,18 @@ public class ProductService {
 
 	public String deleteCategory() {
 		return "deleted";
+	}
+
+	public Product createProduct(Product product) {		
+		Product newProduct = new Product();
+		newProduct.setName(product.getName());
+		newProduct.setDescription(product.getDescription());
+		newProduct.setImage(product.getImage());
+		newProduct.setPrice(product.getPrice());
+		newProduct.setQuantity(product.getQuantity());
+		
+		productRepo.save(newProduct);
+		return newProduct;
 	}
 
 }
