@@ -2,7 +2,9 @@
 type Query {
 	getUserAccount(email: String!): UserAccount
 	getUserAddress(id: Int!): UserAddress
-	getUserPayment(id: Int!) : UserPayment
+	getUserPayment(id: Int!): UserPayment
+	getProductCategory(category: String!): String
+	getAllProductCategories : String
 	
 }
 
@@ -13,6 +15,7 @@ type Mutation{
 	deleteUserAddress(id: Int!): String
 	addUserPayment(email: String! , userPayment : UserPaymentInput! ): String
 	deleteUserPayment(id: Int!): String
+	createCategory(category: String!): String
 }
 
 type UserAccount{
