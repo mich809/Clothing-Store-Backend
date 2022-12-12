@@ -44,4 +44,16 @@ public class ProductService {
 		return newProduct;
 	}
 
+	public void deleteProduct(Long id) {
+		if(productRepo.existsById(id)) {
+			productRepo.deleteById(id);
+		}
+		
+	}
+
+	public Iterable<Product> getAllProducts() {
+		 return productRepo.findAll();
+		
+	}
+
 }
