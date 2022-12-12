@@ -6,7 +6,7 @@ type Query {
 	getProductCategory(category: String!): String
 	getAllProductCategories : String
 	getProduct(id : Int!) : product
-	getAllProducts :[products]
+	getAllProducts :[product]
 	
 }
 
@@ -18,7 +18,7 @@ type Mutation{
 	addUserPayment(email: String! , userPayment : UserPaymentInput! ): String
 	deleteUserPayment(id: Int!): String
 	createCategory(category: String!): String
-	createProduct(product: ProductInput!): String
+	createProduct(product: ProductInput!): product
 	deleteProduct(id: Int!) : String
 }
 
@@ -58,7 +58,7 @@ type product{
 	name: String
 	description: String
 	image : String
-	price: Int
+	price: Float
 	quantity : Int
 }
 
