@@ -3,8 +3,6 @@ type Query {
 	getUserAccount(email: String!): UserAccount
 	getUserAddress(id: Int!): UserAddress
 	getUserPayment(id: Int!): UserPayment
-	getProductCategory(category: String!): String
-	getAllProductCategories : String
 	getProduct(id : Int!) : product
 	getAllProducts :[product]
 	
@@ -16,8 +14,7 @@ type Mutation{
 	addUserAddress(email: String! , userAddress : UserAddressInput! ): String	
 	deleteUserAddress(id: Int!): String
 	addUserPayment(email: String! , userPayment : UserPaymentInput! ): String
-	deleteUserPayment(id: Int!): String
-	createCategory(category: String!): String
+	deleteUserPayment(id: Int!): String	
 	createProduct(product: ProductInput!): product
 	deleteProduct(id: Int!) : String
 }

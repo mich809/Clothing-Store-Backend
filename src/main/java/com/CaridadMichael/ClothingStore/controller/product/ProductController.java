@@ -34,20 +34,7 @@ public class ProductController {
 		return productService.getAllProducts();
 		
 	}
-	@MutationMapping
-	public String createCategory(@Argument String category) {
-		return productService.createCategory(category);
-		
-	}
 	
-	@QueryMapping
-	public String getProductCategory(@Argument String category) {
-		return productService.getProductCategory();
-	}
 	
-	@QueryMapping
-	public String getAllProductCategories() {
-		return productService.getAllProductCategories();
-	}
 
 }
