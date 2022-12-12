@@ -14,8 +14,8 @@ public class ProductService {
 	@Autowired
 	private ProductCategoryRepo productCategoryRepo;
 
-	public String createCategory() {
-		return "create";
+	public String createCategory(String category) {
+		return category;
 	}
 
 	public String getProductCategory() {
