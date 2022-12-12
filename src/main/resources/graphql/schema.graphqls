@@ -5,6 +5,8 @@ type Query {
 	getUserPayment(id: Int!): UserPayment
 	getProductCategory(category: String!): String
 	getAllProductCategories : String
+	getProduct(id : Int!) : product
+	getAllProducts :[products]
 	
 }
 
@@ -16,6 +18,8 @@ type Mutation{
 	addUserPayment(email: String! , userPayment : UserPaymentInput! ): String
 	deleteUserPayment(id: Int!): String
 	createCategory(category: String!): String
+	createProduct(product: ProductInput!): String
+	deleteProduct(id: Int!) : String
 }
 
 type UserAccount{
@@ -49,6 +53,15 @@ type UserAddress{
 	
 }
 
+type product{
+	id : Int
+	name: String
+	description: String
+	image : String
+	price: Int
+	quantity : Int
+}
+
 input UserAddressInput{
 	firstName: String
 	lastName : String
@@ -57,8 +70,7 @@ input UserAddressInput{
 	city: String
 	postalCode: String
 	country: String
-	telephone: String
-	
+	telephone: String	
 	
 }
 
@@ -67,6 +79,17 @@ input UserPaymentInput{
 	lastName : String
 	cardNumber: String
 	expireDate: String
+	
+	
+	
+}
+
+input ProductInput{
+	name: String
+	description : String
+	image : String
+	price : Int
+	quantity : Int
 	
 	
 	
