@@ -10,6 +10,7 @@ public class Product {
 
 	private String name;
 	private String description;
+	private String image;
 	private float price;
 	private int quantity;
 
@@ -54,6 +55,22 @@ public class Product {
 
 	public void setPrice(float price) {
 		this.price = price;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 }
