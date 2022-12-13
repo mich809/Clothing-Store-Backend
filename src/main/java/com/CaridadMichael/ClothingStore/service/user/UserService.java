@@ -17,14 +17,17 @@ import com.CaridadMichael.ClothingStore.repository.user.UserPaymentRepo;
 @Service
 public class UserService {
 
-	@Autowired
 	private UserAccountRepo userAccountRepo;
 
-	@Autowired
 	private UserAddressRepo userAddressRepo;
 
-	@Autowired
 	private UserPaymentRepo userPaymentRepo;
+
+	@Autowired
+	public UserService(UserAccountRepo userAccountRepo, UserAddressRepo userAddressRepo,
+			UserPaymentRepo userPaymentRepo) {
+
+	}
 
 	public String createUserAccount(String email, String password) {
 		if (userAccountExists(email)) {
@@ -36,15 +39,15 @@ public class UserService {
 		return "User " + email + " created";
 
 	}
-	
+
 	@Transactional
 	public String deleteUserAccount(String email) {
 		if (userAccountRepo.existsByEmail(email)) {
 			userAccountRepo.deleteByEmail(email);
 			return "User " + email + " deleted";
-			
+
 		}
-		return "user " + email +" not found";
+		return "user " + email + " not found";
 
 	}
 
@@ -70,7 +73,7 @@ public class UserService {
 			}
 			return "User address deleted";
 		}
-		
+
 		return "User address not found";
 
 	}
@@ -110,14 +113,13 @@ public class UserService {
 			}
 			return "User payment deleted";
 		}
-		
+
 		return "User payment not found";
-			
+
 	}
 
 	private boolean userAccountExists(String email) {
 		return userAccountRepo.existsByEmail(email);
 	}
-	
-	
+
 }

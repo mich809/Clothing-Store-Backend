@@ -16,14 +16,19 @@ import com.CaridadMichael.ClothingStore.service.user.UserService;
 @RestController
 public class UserController {
 
-	@Autowired
 	private UserService userService;
+
+	@Autowired
+	public UserController(UserService userService) {
+		this.userService = userService;
+
+	}
 
 	@MutationMapping
 	public String createUserAccount(@Argument String email, @Argument String password) {
 		return userService.createUserAccount(email, password);
 	}
-	
+
 	@MutationMapping
 	public String deleteUserAccount(@Argument String email) {
 		return userService.deleteUserAccount(email);
@@ -34,18 +39,19 @@ public class UserController {
 		userService.addUserAddress(email, userAddress);
 
 	}
+
 	@MutationMapping
 	public String deleteUserAddress(@Argument Long id) {
 		return userService.deleteUserAddress(id);
 
 	}
-	
+
 	@MutationMapping
 	public void addUserPayment(@Argument String email, @Argument UserPayment userPayment) {
 		userService.addUserPayment(email, userPayment);
 
 	}
-	
+
 	@MutationMapping
 	public String deleteUserPayment(@Argument Long id) {
 		return userService.deleteUserPayment(id);
@@ -61,7 +67,7 @@ public class UserController {
 	public Optional<UserAddress> getUserAddress(@Argument Long id) {
 		return userService.getUserAddress(id);
 	}
-	
+
 	@QueryMapping
 	public Optional<UserPayment> getUserPayment(@Argument Long id) {
 		return userService.getUserPayment(id);
