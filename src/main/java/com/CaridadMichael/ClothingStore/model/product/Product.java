@@ -1,5 +1,8 @@
 package com.CaridadMichael.ClothingStore.model.product;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +21,9 @@ public class Product {
 	private String image;
 	private float price;
 	private int quantity;
+
+	@Column(name = "date_created")
+	private LocalDate createdDate;
 
 	public Product() {
 	}
@@ -84,6 +90,14 @@ public class Product {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public LocalDate getLocalDate() {
+		return createdDate;
+	}
+
+	public void setLocalDate(LocalDate localDate) {
+		this.createdDate = localDate;
 	}
 
 }
