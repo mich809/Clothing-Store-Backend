@@ -5,6 +5,7 @@ type Query {
 	getUserPayment(id: Int!): UserPayment
 	getProduct(id : Int!) : product
 	getAllProducts :[product]
+	getAllProductsPaged(page: Int , size: Int) : [product]
 	
 }
 
