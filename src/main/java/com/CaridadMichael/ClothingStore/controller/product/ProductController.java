@@ -44,5 +44,17 @@ public class ProductController {
 		return productService.getAllProductsPaged(page, size);
 
 	}
+	
+	@QueryMapping
+	public Page<Product> getAllProductsByAscendingPrice(@Argument int page, @Argument int size) {
+		return productService.getAllProductsByAscendingPrice(page, size);
+
+	}
+	
+	@QueryMapping
+	public Page<Product> getAllProductsByDescendingPrice(@Argument int page, @Argument int size) {
+		return productService.getAllProductsByDescendingPrice(page, size);
+
+	}
 
 }

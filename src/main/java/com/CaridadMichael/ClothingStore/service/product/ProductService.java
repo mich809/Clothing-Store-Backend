@@ -51,5 +51,17 @@ public class ProductService {
 		return productRepo.findAll(pageRequest);
 		
 	}
+	
+	public Page<Product> getAllProductsByAscendingPrice (int page , int size){
+		PageRequest pageRequest = PageRequest.of(page, size);
+		return productRepo.findAllByOrderByPriceAsc(pageRequest);
+		
+	}
+	
+	public Page<Product> getAllProductsByDescendingPrice (int page , int size){
+		PageRequest pageRequest = PageRequest.of(page, size);
+		return productRepo.findAllByOrderByPriceDesc(pageRequest);
+		
+	}
 
 }
