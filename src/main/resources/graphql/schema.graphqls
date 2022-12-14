@@ -58,6 +58,8 @@ type product{
 	image : String
 	price: Float
 	quantity : Int
+	createdDate : String
+	
 }
 
 input UserAddressInput{
