@@ -64,4 +64,9 @@ public class ProductService {
 		
 	}
 
+	public Page<Product> getAllProductsByNewest (int page , int size){
+		PageRequest pageRequest = PageRequest.of(page, size);
+		return productRepo.findAllByOrderByCreatedDateDesc(pageRequest);
+		
+	}
 }

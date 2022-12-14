@@ -8,6 +8,7 @@ type Query {
 	getAllProductsPaged(page: Int , size: Int) : [product]
 	getAllProductsByAscendingPrice(page: Int , size: Int): [product]
 	getAllProductsByDescendingPrice(page: Int , size: Int): [product]
+	getAllProductsByNewest(page: Int , size: Int): [product]
 }
 
 type Mutation{

@@ -56,5 +56,11 @@ public class ProductController {
 		return productService.getAllProductsByDescendingPrice(page, size);
 
 	}
+	
+	@QueryMapping
+	public Page<Product> getAllProductsByNewest(@Argument int page, @Argument int size) {
+		return productService.getAllProductsByNewest(page, size);
+
+	}
 
 }

@@ -9,5 +9,6 @@ import com.CaridadMichael.ClothingStore.model.product.Product;
 public interface ProductRepo  extends PagingAndSortingRepository<Product, Long> {
 	Page<Product> findAllByOrderByPriceAsc(PageRequest pageRequest);
 	Page<Product> findAllByOrderByPriceDesc(PageRequest pageRequest);
+	Page<Product> findAllByOrderByCreatedDateDesc(PageRequest pageRequest);
 
 }
