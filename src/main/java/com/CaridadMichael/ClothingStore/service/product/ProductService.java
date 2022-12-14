@@ -1,5 +1,7 @@
 package com.CaridadMichael.ClothingStore.service.product;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -26,6 +28,7 @@ public class ProductService {
 		newProduct.setImage(product.getImage());
 		newProduct.setPrice(product.getPrice());
 		newProduct.setQuantity(product.getQuantity());
+		newProduct.setLocalDate(LocalDate.now());
 
 		productRepo.save(newProduct);
 		return newProduct;
