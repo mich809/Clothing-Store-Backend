@@ -1,6 +1,7 @@
 package com.CaridadMichael.ClothingStore.service.product;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -39,6 +40,14 @@ public class ProductService {
 			productRepo.deleteById(id);
 		}
 
+	}
+	
+	public Optional<Product> getProduct(Long id) {
+		if (productRepo.existsById(id)) {
+			return productRepo.findById(id);
+		}
+		
+		return null;
 	}
 
 	public Iterable<Product> getAllProducts() {

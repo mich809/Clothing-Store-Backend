@@ -1,5 +1,7 @@
 package com.CaridadMichael.ClothingStore.controller.product;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -37,6 +39,11 @@ public class ProductController {
 	public Iterable<Product> getAllProducts() {
 		return productService.getAllProducts();
 
+	}
+	
+	@QueryMapping
+	public Optional<Product> getProduct(@Argument Long id){
+		return productService.getProduct(id);
 	}
 
 	@QueryMapping
