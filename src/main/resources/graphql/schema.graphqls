@@ -9,6 +9,8 @@ type Query {
 	getAllProductsByAscendingPrice(page: Int , size: Int): [product]
 	getAllProductsByDescendingPrice(page: Int , size: Int): [product]
 	getAllProductsByNewest(page: Int , size: Int): [product]
+	getOrder(userID:Int, orderID: Int): order
+	getAllOrders(userID:Int): [order]
 }
 
 type Mutation{
@@ -20,6 +22,8 @@ type Mutation{
 	deleteUserPayment(id: Int!): String	
 	createProduct(product: ProductInput!): product
 	deleteProduct(id: Int!) : String
+	createOrder(userID: Int!, productID : Int! ): String
+	deleteOrder(orderID : Int!): String
 }
 
 type UserAccount{
@@ -62,6 +66,12 @@ type product{
 	quantity : Int
 	createdDate : String
 	
+}
+
+type order{
+	id : Int
+	totalCost: Int
+	products: [product]
 }
 
 input UserAddressInput{
