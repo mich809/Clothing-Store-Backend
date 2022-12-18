@@ -21,4 +21,46 @@ public class Order {
 	@OneToMany
 	private Set<Product> products;
 
+	public Order() {
+	}
+
+	public Order(int cost, LocalDate createdDate, Set<Product> products) {
+		super();
+		this.cost = cost;
+		this.createdDate = createdDate;
+		this.products = products;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public int getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
+	public LocalDate getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDate createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+
 }
