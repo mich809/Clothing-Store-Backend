@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,7 +12,8 @@ import javax.persistence.OneToMany;
 
 import com.CaridadMichael.ClothingStore.model.product.Product;
 
-public class Order {
+@Entity
+public class UserOrder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -21,10 +23,10 @@ public class Order {
 	@OneToMany
 	private Set<Product> products;
 
-	public Order() {
+	public UserOrder() {
 	}
 
-	public Order(int cost, LocalDate createdDate, Set<Product> products) {
+	public UserOrder(int cost, LocalDate createdDate, Set<Product> products) {
 		super();
 		this.cost = cost;
 		this.createdDate = createdDate;
@@ -39,11 +41,11 @@ public class Order {
 		this.id = id;
 	}
 
-	public int getCost() {
+	public int getTotalCost() {
 		return cost;
 	}
 
-	public void setCost(int cost) {
+	public void setTotalCost(int cost) {
 		this.cost = cost;
 	}
 

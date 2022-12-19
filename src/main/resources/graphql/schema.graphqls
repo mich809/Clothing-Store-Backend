@@ -22,7 +22,7 @@ type Mutation{
 	deleteUserPayment(id: Int!): String	
 	createProduct(product: ProductInput!): product
 	deleteProduct(id: Int!) : String
-	createOrder(userID: Int!, productID : Int! ): String
+	createOrder(userID: Int!, orderID : Int! , productID : Int!  ): order
 	deleteOrder(orderID : Int!): String
 }
 
