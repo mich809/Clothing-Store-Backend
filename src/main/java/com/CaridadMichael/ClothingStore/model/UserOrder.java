@@ -1,16 +1,16 @@
-package com.CaridadMichael.ClothingStore.model.order;
+package com.CaridadMichael.ClothingStore.model;
 
 import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-import com.CaridadMichael.ClothingStore.model.product.Product;
 
 @Entity
 public class UserOrder {
@@ -22,6 +22,9 @@ public class UserOrder {
 	private LocalDate createdDate;
 	@OneToMany
 	private Set<Product> products;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	private UserAccount userAccount;
 
 	public UserOrder() {
 	}
@@ -63,6 +66,22 @@ public class UserOrder {
 
 	public void setProducts(Set<Product> products) {
 		this.products = products;
+	}
+	
+	public int getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
 	}
 
 }

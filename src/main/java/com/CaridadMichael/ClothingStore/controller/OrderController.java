@@ -1,11 +1,13 @@
-package com.CaridadMichael.ClothingStore.controller.order;
+package com.CaridadMichael.ClothingStore.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.CaridadMichael.ClothingStore.model.order.UserOrder;
-import com.CaridadMichael.ClothingStore.service.order.OrderService;
+import com.CaridadMichael.ClothingStore.model.UserOrder;
+import com.CaridadMichael.ClothingStore.service.OrderService;
 
 @RestController
 public class OrderController {
@@ -16,8 +18,9 @@ public class OrderController {
 		this.orderService = orderService;
 	}
 	
-	public UserOrder createOrder(@Argument UserOrder userOrder) {
-		return orderService.createOrder(userOrder);
+
+	public UserOrder createOrder(@Argument int userID, @Argument int productID , @Argument UserOrder userOrder) {
+		return orderService.createOrder(userID, productID ,userOrder);
 		
 	}
 //	

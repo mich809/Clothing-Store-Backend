@@ -1,4 +1,4 @@
-package com.CaridadMichael.ClothingStore.repository.user;
+package com.CaridadMichael.ClothingStore.repository;
 
 //import org.springframework.data.jpa.repository.JpaRepository;
 //

@@ -1,4 +1,4 @@
-package com.CaridadMichael.ClothingStore.model.user;
+package com.CaridadMichael.ClothingStore.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -1,24 +1,28 @@
-package com.CaridadMichael.ClothingStore.service.order;
+package com.CaridadMichael.ClothingStore.service;
 
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.CaridadMichael.ClothingStore.model.order.UserOrder;
-import com.CaridadMichael.ClothingStore.repository.order.OrderRepo;
+import com.CaridadMichael.ClothingStore.model.UserOrder;
+import com.CaridadMichael.ClothingStore.repository.OrderRepo;
+import com.CaridadMichael.ClothingStore.repository.UserAccountRepo;
 
 @Service
 public class OrderService {
 
 	private OrderRepo orderRepo;
+	
+	private UserAccountRepo userAccountRepo;
 
 	@Autowired
-	public OrderService(OrderRepo orderRepo) {
+	public OrderService(OrderRepo orderRepo , UserAccountRepo userAccountRepo) {
 		this.orderRepo = orderRepo;
+		this.userAccountRepo = userAccountRepo;
 	}
 
-	public UserOrder createOrder(UserOrder order) {
+	public UserOrder createOrder(int userID, int productID ,UserOrder order) {
 		UserOrder newOrder = new UserOrder();
 		newOrder.setTotalCost(order.getTotalCost());
 		newOrder.setCreatedDate(LocalDate.now());

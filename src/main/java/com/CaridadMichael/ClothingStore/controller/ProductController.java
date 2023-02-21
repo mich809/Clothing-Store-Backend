@@ -1,4 +1,4 @@
-package com.CaridadMichael.ClothingStore.controller.product;
+package com.CaridadMichael.ClothingStore.controller;
 
 import java.util.Optional;
 
@@ -9,8 +9,8 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.CaridadMichael.ClothingStore.model.product.Product;
-import com.CaridadMichael.ClothingStore.service.product.ProductService;
+import com.CaridadMichael.ClothingStore.model.Product;
+import com.CaridadMichael.ClothingStore.service.ProductService;
 
 @RestController
 public class ProductController {

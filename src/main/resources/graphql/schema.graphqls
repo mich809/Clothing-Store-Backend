@@ -22,7 +22,7 @@ type Mutation{
 	deleteUserPayment(id: Int!): String	
 	createProduct(product: ProductInput!): product
 	deleteProduct(id: Int!) : String
-	createOrder(userID: Int!, orderID : Int! , productID : Int!  ): order
+	createOrder(userID: Int!,productID : Int!, order: OrderInput ): order
 	deleteOrder(orderID : Int!): String
 }
 
@@ -84,6 +84,11 @@ input UserAddressInput{
 	country: String
 	telephone: String	
 	
+}
+
+input OrderInput{
+	totalCost: Int
+	products: [ProductInput]	
 }
 
 input UserPaymentInput{

@@ -1,4 +1,4 @@
-package com.CaridadMichael.ClothingStore.model.product;
+package com.CaridadMichael.ClothingStore.model;
 
 import java.time.LocalDate;
 

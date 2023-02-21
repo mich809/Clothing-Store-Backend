@@ -1,4 +1,4 @@
-package com.CaridadMichael.ClothingStore.service.product;
+package com.CaridadMichael.ClothingStore.service;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -8,8 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.CaridadMichael.ClothingStore.model.product.Product;
-import com.CaridadMichael.ClothingStore.repository.product.ProductRepo;
+import com.CaridadMichael.ClothingStore.model.Product;
+import com.CaridadMichael.ClothingStore.repository.ProductRepo;
 
 @Service
 public class ProductService {

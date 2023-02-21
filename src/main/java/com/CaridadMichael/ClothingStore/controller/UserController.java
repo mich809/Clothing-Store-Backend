@@ -1,4 +1,4 @@
-package com.CaridadMichael.ClothingStore.controller.user;
+package com.CaridadMichael.ClothingStore.controller;
 
 import java.util.Optional;
 
@@ -8,10 +8,10 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.CaridadMichael.ClothingStore.model.user.UserAccount;
-import com.CaridadMichael.ClothingStore.model.user.UserAddress;
-import com.CaridadMichael.ClothingStore.model.user.UserPayment;
-import com.CaridadMichael.ClothingStore.service.user.UserService;
+import com.CaridadMichael.ClothingStore.model.UserAccount;
+import com.CaridadMichael.ClothingStore.model.UserAddress;
+import com.CaridadMichael.ClothingStore.model.UserPayment;
+import com.CaridadMichael.ClothingStore.service.UserService;
 
 @RestController
 public class UserController {

@@ -1,4 +1,4 @@
-package com.CaridadMichael.ClothingStore.service.user;
+package com.CaridadMichael.ClothingStore.service;
 
 import java.util.Optional;
 
@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.CaridadMichael.ClothingStore.model.user.UserAccount;
-import com.CaridadMichael.ClothingStore.model.user.UserAddress;
-import com.CaridadMichael.ClothingStore.model.user.UserPayment;
-import com.CaridadMichael.ClothingStore.repository.user.UserAccountRepo;
-import com.CaridadMichael.ClothingStore.repository.user.UserAddressRepo;
-import com.CaridadMichael.ClothingStore.repository.user.UserPaymentRepo;
+import com.CaridadMichael.ClothingStore.model.UserAccount;
+import com.CaridadMichael.ClothingStore.model.UserAddress;
+import com.CaridadMichael.ClothingStore.model.UserPayment;
+import com.CaridadMichael.ClothingStore.repository.UserAccountRepo;
+import com.CaridadMichael.ClothingStore.repository.UserAddressRepo;
+import com.CaridadMichael.ClothingStore.repository.UserPaymentRepo;
 
 @Service
 public class UserService {

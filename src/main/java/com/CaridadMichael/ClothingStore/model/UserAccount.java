@@ -1,4 +1,7 @@
-package com.CaridadMichael.ClothingStore.model.user;
+package com.CaridadMichael.ClothingStore.model;
+
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -6,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
@@ -28,6 +32,9 @@ public class UserAccount {
 	@OneToOne(mappedBy = "userAccount", cascade = CascadeType.ALL, orphanRemoval = true)
 	@PrimaryKeyJoinColumn
 	private UserPayment userPayment;
+
+	@OneToMany(mappedBy = "userAccount", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<UserOrder> userOrder;
 
 	public UserAccount() {
 	}
@@ -77,6 +84,14 @@ public class UserAccount {
 
 	public UserAddress getUserAddress() {
 		return this.userAddress;
+	}
+
+	public List<UserOrder> getUserOrder() {
+		return userOrder;
+	}
+
+	public void setUserOrder(List<UserOrder> userOrder) {
+		this.userOrder = userOrder;
 	}
 
 }
